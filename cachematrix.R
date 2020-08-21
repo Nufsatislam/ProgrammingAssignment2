@@ -2,6 +2,7 @@
 ## Inverse of a vector is a vector with same magnitude but different direction. 
 ## The same thing goes with inverse matrix. its a set of vector which has magnitude with opposite directions. or in this case negative.
 ## the function given below can cache its inverse through getting and setting its value.
+## on the other hand, the second function checks and returns an inverse matrix which will be produced by the first function.
 
 ## Write a short comment describing this function:
 ## The function makecachematrix creates a special "vector" which can cache its invers in the later part.
@@ -24,11 +25,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
-## This function given below, computes the inverse of the special "matrix" returned by makeCacheMatrix which is written above. 
-## The cacheSolve should retrieve the inverse from the cache, If the inverse has already been calculated (and the matrix has not changed).
-## the return supplied by this function is always invertible.
+## The function below calculates the mean of the special "vector" created with the above function. 
+## it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. 
+## Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.
+## The function cacheSolve should retrieve the inverse from the cache, If the inverse has already been calculated (and the matrix has not changed).
 
-cacheSolve <- function(x, ...) {
+
+cacheSolve <- function(x, ...) {                        ## This function given below, computes the inverse of the special "matrix" returned by makeCacheMatrix. 
         
         invrs <- x$getInverse()         
         if (!is.null(invrs)){
